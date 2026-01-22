@@ -1,0 +1,17 @@
+.home {
+    width: 100%;
+    height: 100vh;
+    background-image: image-url("top.jpg");
+    background-size: cover;
+    background-position: center;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .home-content {
+    text-align: center;
+    color: #fff;
+  }
+  

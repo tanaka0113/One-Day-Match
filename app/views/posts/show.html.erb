@@ -1,0 +1,16 @@
+<h1><%= @post.title %></h1>
+
+<p>
+  <%= @post.body %>
+</p>
+
+<%= link_to "一覧に戻る", posts_path %>
+
+<%= link_to "編集", edit_post_path(@post) %>
+
+<%= button_to "削除",
+  post_path(@post),
+  method: :delete,
+  data: { confirm: "削除しますか？" } %>
+
+

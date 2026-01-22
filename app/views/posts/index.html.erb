@@ -1,0 +1,19 @@
+<h1>投稿一覧</h1>
+<p>今日は「話してもいい日」だけが表示されます。</p>
+
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <h2><%= link_to post.title, post_path(post) %></h2>
+    <p><%= post.body %></p>
+
+    <%= link_to "編集", edit_post_path(post) %>
+    <%= link_to "削除",
+        post_path(post),
+        method: :delete,
+        data: { confirm: "削除しますか？", turbo: false } %>
+
+    <hr>
+  <% end %>
+<% else %>
+  <p>今日はまだ、誰も話す準備ができていません。</p>
+<% end %>
