@@ -1,10 +1,17 @@
 <h1>投稿一覧</h1>
-<p>今日は「話してもいい日」だけが表示されます。</p>
+<p>今日は「マッチしたい人」だけが表示されます。</p>
 
 <% if @posts.any? %>
   <% @posts.each do |post| %>
     <h2><%= link_to post.title, post_path(post) %></h2>
-    <p><%= post.body %></p>
+    
+    <% if post.image.attached? %>
+  <%= image_tag post.image.variant(resize_to_limit: [300, 200]) %>
+<% end %>
+
+
+
+    <br>
 
     <%= link_to "編集", edit_post_path(post) %>
     <%= link_to "削除",
@@ -15,5 +22,5 @@
     <hr>
   <% end %>
 <% else %>
-  <p>今日はまだ、誰も話す準備ができていません。</p>
+  <p>今日はまだ、誰も投稿していません。</p>
 <% end %>

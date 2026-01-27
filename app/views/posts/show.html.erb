@@ -1,16 +1,20 @@
-<h1><%= @post.title %></h1>
+<h2><%= @post.title %></h2>
 
-<p>
-  <%= @post.body %>
-</p>
+<p><%= @post.body %></p>
 
-<%= link_to "一覧に戻る", posts_path %>
+<h2>画像</h2>
+<% if @post.image.attached? %>
+  <div>
+    <%= image_tag @post.image.variant(resize_to_limit: [450, 350]) %>
+  </div>
+<% end %>
 
-<%= link_to "編集", edit_post_path(@post) %>
+<hr>
 
-<%= button_to "削除",
-  post_path(@post),
-  method: :delete,
-  data: { confirm: "削除しますか？" } %>
-
-
+<div>
+  <%= link_to '編集する', edit_post_path(@post) %><br>
+  <%= link_to '削除する',
+      post_path(@post),
+      data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" } %><br>
+  <%= link_to '投稿一覧ページへ', posts_path %>
+</div>
