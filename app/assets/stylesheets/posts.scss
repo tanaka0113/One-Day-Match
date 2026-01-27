@@ -1,0 +1,34 @@
+/* app/assets/stylesheets/posts.scss */
+
+h1 {
+    font-family: serif;
+  }
+  
+  .cover-index {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("/assets/index.jpg");
+    background-color: rgba(255, 255, 255, 0.4);
+    background-blend-mode: lighten;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  
+  .form-label {
+    font-size: 20px;
+  }
+  
+  .form-group {
+    width: 600px;
+  }
+  
+  .cover-index {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cover-index .container {
+    max-width: 900px;
+  }
+  
