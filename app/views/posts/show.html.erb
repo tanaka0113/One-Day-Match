@@ -1,20 +1,44 @@
-<h2><%= @post.title %></h2>
+<!-- app/views/posts/show.html.erb -->
 
-<p><%= @post.body %></p>
+<div class="cover-show">
+  <div class="container">
 
-<h2>画像</h2>
-<% if @post.image.attached? %>
-  <div>
-    <%= image_tag @post.image.variant(resize_to_limit: [450, 350]) %>
+    <div class="row">
+      <h1 class="font-weight-normal mt-5 mb-5 text-center">
+        投稿詳細
+      </h1>
+    </div>
+
+    <div class="d-block text-center">
+
+      <p class="caption">投稿者</p>
+
+      <% if @post.image.attached? %>
+        <%= image_tag @post.image.variant(resize_to_limit: [450, 350]) %><br>
+      <% end %>
+
+      <p class="caption"><%= @post.title %></p>
+
+      <h2>内容</h2>
+      <p id="text"><%= @post.body %></p>
+
+      <div class="mt-4">
+        <%= link_to "編集する",
+            edit_post_path(@post),
+            class: "btn btn-info mr-3" %>
+
+        <%= link_to "削除する",
+            post_path(@post),
+            data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" },
+            class: "btn btn-danger" %>
+      </div>
+
+      <div class="mt-4">
+        <%= link_to "投稿一覧へ戻る",
+            posts_path,
+            class: "btn btn-dark" %>
+      </div>
+
+    </div>
   </div>
-<% end %>
-
-<hr>
-
-<div>
-  <%= link_to '編集する', edit_post_path(@post) %><br>
-  <%= link_to '削除する',
-      post_path(@post),
-      data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" } %><br>
-  <%= link_to '投稿一覧ページへ', posts_path %>
 </div>

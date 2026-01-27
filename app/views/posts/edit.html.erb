@@ -1,19 +1,45 @@
-<h1>編集する</h1>
+<!-- app/views/posts/edit.html.erb -->
 
-<%= form_with model: @post, local: true do |f| %>
-  <h4>名前</h4>
-  <%= f.text_field :title %>
+<div class="cover-edit">
+  <div class="container">
 
-  <h4>内容</h4>
-  <%= f.text_area :body %><br>
+    <div class="row">
+      <h1 class="font-weight-normal mt-5 mb-5 text-center">
+        投稿を編集
+      </h1>
+    </div>
 
-  <h4>画像</h4>
-  <% if @post.image.attached? %>
-    <%= image_tag @post.image.variant(resize_to_limit: [450, 350]) %><br>
-  <% end %>
+    <div class="row justify-content-center">
+      <%= form_with model: @post, local: true do |f| %>
 
-  <h4>画像を変更する</h4>
-  <%= f.file_field :image %><br>
+        <div class="form-group mb-3">
+          <label class="form-label">名前</label>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
 
-  <%= f.submit '保存' %>
-<% end %>
+        <div class="form-group mb-3">
+          <label class="form-label">内容</label>
+          <%= f.text_area :body, rows: 10, class: "form-control" %>
+        </div>
+
+        <div class="form-group mb-4">
+          <label class="form-label">現在の画像</label><br>
+          <% if @post.image.attached? %>
+            <%= image_tag @post.image.variant(resize_to_limit: [450, 350]) %><br>
+          <% end %>
+
+          <label class="form-label mt-3">画像を変更する</label><br>
+          <%= f.file_field :image %>
+        </div>
+
+        <%= f.submit "保存する", class: "btn btn-success" %><br>
+
+        <%= link_to "投稿詳細ページへ戻る",
+            post_path(@post),
+            class: "btn btn-dark mt-3" %>
+
+      <% end %>
+    </div>
+
+  </div>
+</div>
