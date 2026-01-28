@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.4">
+  <diagram name="ページ1" id="YknIhnLGpVTJysxlDDhC">
+    <mxGraphModel dx="786" dy="513" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c3BsyC9fzCFjEKnV9GyM-23" parent="1" style="text;whiteSpace=wrap;strokeColor=default;" value="users&#xa; ─────────────────────&#xa; PK id&#xa;   　 email&#xa;    　password_digest&#xa;    　display_name&#xa;    　today_ok&#xa;    　created_at&#xa;    　updated_at" vertex="1">
+          <mxGeometry height="150" width="290" x="90" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c3BsyC9fzCFjEKnV9GyM-24" parent="1" style="text;whiteSpace=wrap;strokeColor=default;" value="posts               &#xa;───────&#xa;PK id               &#xa;FK user_id          &#xa;   　content           &#xa;   　expires_at        &#xa;  　 created_at" vertex="1">
+          <mxGeometry height="120" width="140" x="90" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="c3BsyC9fzCFjEKnV9GyM-25" parent="1" style="text;whiteSpace=wrap;strokeColor=default;" value="likes&#xa;─────────   &#xa;PK id               &#xa;FK user_id&#xa;FK post_id&#xa;created_at" vertex="1">
+          <mxGeometry height="120" width="130" x="270" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="c3BsyC9fzCFjEKnV9GyM-29" edge="1" parent="1" source="c3BsyC9fzCFjEKnV9GyM-23" style="endArrow=classic;html=1;rounded=0;exitX=0.476;exitY=1.007;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.55;entryY=-0.025;entryDx=0;entryDy=0;entryPerimeter=0;" target="c3BsyC9fzCFjEKnV9GyM-24" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="360" as="sourcePoint" />
+            <mxPoint x="520" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c3BsyC9fzCFjEKnV9GyM-31" edge="1" parent="1" source="c3BsyC9fzCFjEKnV9GyM-23" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="360" as="sourcePoint" />
+            <mxPoint x="320" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c3BsyC9fzCFjEKnV9GyM-33" parent="1" style="text;whiteSpace=wrap;strokeColor=default;" value="comments&#xa;─────────────────&#xa;PK id&#xa;FK user_id&#xa;FK post_id&#xa;     content&#xa;     created_at" vertex="1">
+          <mxGeometry height="120" width="240" x="540" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="c3BsyC9fzCFjEKnV9GyM-34" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="530" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

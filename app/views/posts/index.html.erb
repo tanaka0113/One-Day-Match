@@ -10,25 +10,26 @@
       <div class="row">
         <% @posts.each do |post| %>
           <div class="col-md-4 mb-4 text-center">
+            <div class="bg-white p-3 rounded shadow-sm">
 
-            <h5>
-              <%= link_to post.title, post_path(post) %>
-            </h5>
+              <% if post.title.present? %>
+                <p class="text-muted mb-1">
+                  <%= post.title %>
+                </p>
+              <% end %>
 
-            <% if post.image.attached? %>
-              <%= image_tag post.image.variant(resize_to_limit: [300, 200]),
-                    class: "img-fluid mb-2" %>
-            <% end %>
+              <% if post.image.attached? %>
+                <%= image_tag post.image.variant(resize_to_limit: [300, 200]),
+                      class: "img-fluid mb-2 rounded" %>
+              <% end %>
 
-            <div class="mt-2">
-              <%= link_to "編集", edit_post_path(post) %>
-              |
-              <%= link_to "削除",
-                    post_path(post),
-                    method: :delete,
-                    data: { confirm: "削除しますか？", turbo: false } %>
+              <% if post.body.present? %>
+                <p class="mt-2 text-dark">
+                  <%= post.body %>
+                </p>
+              <% end %>
+
             </div>
-
           </div>
         <% end %>
       </div>
