@@ -1,24 +1,17 @@
-# README
+# OneDayMatch
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ概要
+OneDayMatch は静かな思想を持ったマッチングアプリです。
 
-Things you may want to cover:
+毎日すべての人が常に繋がる前提ではなく、
+その日を無事に終えることや、心の余白を大切にする思想を
+プロダクトとして表現しています。
 
-* Ruby version
+---
 
-* System dependencies
+## コンセプト・設計思想
+- 常時接続・即時反応を前提としない
+- 話せる日／話せない日を自分で決められる
+- SNS的な承認欲求を最小化する
+- HSP気質の人でも使い
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
