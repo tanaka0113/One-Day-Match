@@ -20,7 +20,7 @@
               </p>
 
               <p class="fw-bold mb-2">
-  <%= post.user ? post.user.email.split("@").first : "匿名ユーザー" %>
+              <%= post.user&.name || "匿名ユーザー" %>
 </p>
 
             
@@ -30,6 +30,12 @@
 <%= truncate(post.content, length: 60) %>
 </p>
 
+<% if post.image.attached? %>
+  <div class="mb-2 text-center">
+    <%= image_tag post.image.variant(resize_to_fill: [300, 200]),
+          class: "img-fluid rounded" %>
+  </div>
+<% end %>
 
               <p class="text-muted small mb-2">
                 💬 <%= post.comments.count %> 件のやりとり

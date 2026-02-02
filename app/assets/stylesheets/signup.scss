@@ -1,0 +1,25 @@
+.bg {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#bcd, #eef);
+  }
+  
+  .box {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    width: 360px;
+  }
+  
+  .box-inner h1 {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .box-inner input {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  

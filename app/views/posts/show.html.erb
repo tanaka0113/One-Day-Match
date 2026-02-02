@@ -17,7 +17,7 @@
         今日、誰かと話したかった人
       </p>
       <p class="text-muted mb-4">
-      <%= @post.user&.email&.split("@")&.first || "匿名ユーザー" %>
+      <%= @post.user&.name || "匿名ユーザー" %>
     </p>
     
       <% if @post.image.attached? %>
@@ -29,7 +29,7 @@
       </h2>
 
       <p id="text" class="mb-4">
-        <%= @post.body %>
+      <%= simple_format(@post.content) %>
       </p>
 
       <% if @post.user == current_user %>
@@ -66,32 +66,38 @@
 </p>
 
 <% @comments.each do |comment| %>
-  <div class="comments-index mb-3 p-3 bg-light rounded">
+<div class="comments-index mb-3 p-3 border rounded bg-white">
 
-    <div class="d-flex justify-content-between align-items-center mb-1">
-      <strong><%= comment.user.name %></strong>
-      <span class="text-muted small">
-        <%= comment.created_at.strftime("%m/%d") %>
-      </span>
-    </div>
+
+
+
+<div class="d-flex justify-content-between align-items-center mb-1">
+<span class="text-muted small">
+<%= comment.user&.name || "匿名ユーザー" %>
+</span>
+<span class="text-muted small">
+  <%= comment.created_at.strftime("%m/%d") %>
+</span>
+</div>
 
     <div class="d-flex">
-      <p class="mb-0">
-        <%= comment.comment %>
-      </p>
+    <p class="mb-0">
+    <%= comment.content %>
+  </p>
+  
 
       <% if comment.user == current_user %>
-        <%= link_to "この言葉を消す",
-              post_comment_path(@post, comment),
-              data: { turbo_method: :delete, turbo_confirm: "この言葉を消しますか？" },
-              class: "btn btn-sm btn-outline-danger ms-auto" %>
-      <% end %>
+  <%= link_to "この言葉を消す",
+        post_comment_path(@post, comment),
+        data: { turbo_method: :delete, turbo_confirm: "この言葉を消しますか？" },
+        class: "btn btn-sm btn-link text-muted ms-auto" %>
+<% end %>
+
     </div>
 
   </div>
 <% end %>
 
-<%= paginate @comments %>
 
 <hr class="my-5">
 
@@ -101,7 +107,7 @@
 
 <%= form_with(model: [@post, @comment], local: true) do |f| %>
   <div class="mb-3">
-    <%= f.text_area :comment,
+    <%= f.text_area :content,
           rows: 3,
           placeholder: "ひとこと返す",
           class: "form-control" %>
