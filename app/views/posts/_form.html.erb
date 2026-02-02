@@ -1,16 +1,19 @@
 <%= form_with model: @post, local: true do |f| %>
-    <div>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </div>
-  
-    <div>
-      <%= f.label :body %><br>
-      <%= f.text_area :body %>
-    </div>
-  
-    <div>
-      <%= f.submit %>
-    </div>
-  <% end %>
-  
+
+  <div class="mb-3">
+    <%= f.text_area :content,
+          rows: 5,
+          placeholder: "今日感じていることを、ひとこと。",
+          class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+
+  <div class="text-center">
+    <%= f.submit "今日の記録を残す",
+          class: "btn btn-primary px-4" %>
+  </div>
+
+<% end %>

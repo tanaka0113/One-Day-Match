@@ -1,27 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>OneDayMatch</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <title>OneDayMatch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-</head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<body>
-  <header>
-    <div>
-      <%= link_to root_path, class: "text-white nav-link", id: "head-top" do %>
-        OneDayMatch
-      <% end %>
-    </div>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
 
-    <div><%= link_to "トップ", root_path, class: "text-white nav-link" %></div>
-    <div><%= link_to "投稿する", new_post_path, class: "text-white nav-link" %></div>
-    <div><%= link_to "投稿一覧", posts_path, class: "text-white nav-link" %></div>
-  </header>
+  <body>
 
-  <%= yield %>
-</body>
+    <!-- ▼ ヘッダー（←ここに今のコードを入れる） -->
+    <header class="mb-4">
+      <div class="container d-flex justify-content-between align-items-center py-2">
+
+        <!-- ロゴ -->
+        <div>
+          <%= link_to root_path, class: "text-decoration-none fw-bold fs-5" do %>
+            OneDayMatch
+          <% end %>
+          <div class="small text-muted">
+            今日だけ、誰かと話してもいい場所
+          </div>
+        </div>
+
+        <!-- ナビ -->
+        <nav class="d-flex gap-3 align-items-center">
+  <% if user_signed_in? %>
+    <span class="small text-muted">
+      今日は <%= Time.current.strftime("%-m/%-d") %>
+    </span>
+
+    <%= link_to "今日の投稿",
+          new_post_path,
+          class: "btn btn-primary btn-sm" %>
+
+    <%= link_to "みんなの記録",
+          posts_path,
+          class: "btn btn-outline-light btn-sm" %>
+
+    <%= button_to "ログアウト",
+          destroy_user_session_path,
+          method: :delete,
+          data: { turbo_confirm: "ログアウトしますか？" },
+          class: "btn btn-outline-light btn-sm" %>
+
+  <% else %>
+    <span class="small text-muted">
+      今日は、誰かと話したい気分ですか？
+    </span>
+
+    <%= link_to "新規登録",
+          new_user_registration_path,
+          class: "btn btn-primary btn-sm" %>
+
+    <%= link_to "ログイン",
+          new_user_session_path,
+          class: "btn btn-outline-secondary btn-sm" %>
+  <% end %>
+</nav>
+
+
+      </div>
+    </header>
+    <!-- ▲ ヘッダーここまで -->
+
+    <%= yield %>
+
+  </body>
 </html>

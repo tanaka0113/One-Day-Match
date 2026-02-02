@@ -1,41 +1,52 @@
 <div class="cover-index">
   <div class="container py-5">
 
-    <h1 class="text-center mb-3">投稿一覧</h1>
-    <p class="text-center mb-5">
-      今日誰かと「マッチしたい人」だけが表示されます。
+    <h1 class="text-center mb-2">
+      今日誰かと繋がりたい人たち
+    </h1>
+
+    <p class="text-center text-muted mb-5">
+      今日は、誰かと話してもいい日ですか？
     </p>
 
     <% if @posts.any? %>
       <div class="row">
         <% @posts.each do |post| %>
-          <div class="col-md-4 mb-4 text-center">
-            <div class="bg-white p-3 rounded shadow-sm">
+          <div class="col-md-4 mb-4">
+            <div class="bg-white p-3 rounded shadow-sm h-100">
 
-              <% if post.title.present? %>
-                <p class="text-muted mb-1">
-                  <%= post.title %>
-                </p>
-              <% end %>
+              <p class="small text-muted mb-1">
+                <%= post.created_at.strftime("%-m/%-d") %> の記録
+              </p>
 
-              <% if post.image.attached? %>
-                <%= image_tag post.image.variant(resize_to_limit: [300, 200]),
-                      class: "img-fluid mb-2 rounded" %>
-              <% end %>
+              <p class="fw-bold mb-2">
+  <%= post.user ? post.user.email.split("@").first : "匿名ユーザー" %>
+</p>
 
-              <% if post.body.present? %>
-                <p class="mt-2 text-dark">
-                  <%= post.body %>
-                </p>
-              <% end %>
+            
+
+
+<p class="mb-3">
+<%= truncate(post.content, length: 60) %>
+</p>
+
+
+              <p class="text-muted small mb-2">
+                💬 <%= post.comments.count %> 件のやりとり
+              </p>
+
+              <%= link_to "この日の記録を見る",
+      "/posts/#{post.id}",
+      class: "btn btn-outline-secondary btn-sm w-100" %>
+
 
             </div>
           </div>
         <% end %>
       </div>
     <% else %>
-      <p class="text-center">
-        今日はまだ、誰も投稿していません。
+      <p class="text-center text-muted mt-5">
+        今日はまだ、誰も話す準備ができていません。
       </p>
     <% end %>
 

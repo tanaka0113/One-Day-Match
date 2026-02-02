@@ -1,8 +1,27 @@
 <div class="home">
-  <div class="home-content">
+  <div class="home-content text-center">
     <p class="sub-title">〜今日だけ誰かとマッチしませんか〜</p>
-    <h1 class="title mb-2">One Day Match</h1>
-    <h2 class="btn btn-primary mr-2">新規登録</h2>
-    <h2 class="btn btn-success ml-2">ログイン</h2>
+    <h1 class="title mb-4">One Day Match</h1>
+
+    <% if user_signed_in? %>
+      <!-- ログイン中 -->
+      <%= link_to "投稿する",
+            new_post_path,
+            class: "btn btn-primary me-2" %>
+
+      <%= link_to "投稿一覧",
+            posts_path,
+            class: "btn btn-outline-secondary" %>
+
+    <% else %>
+      <!-- 未ログイン -->
+      <%= link_to "新規登録",
+            new_user_registration_path,
+            class: "btn btn-primary me-2" %>
+
+      <%= link_to "ログイン",
+            new_user_session_path,
+            class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>
