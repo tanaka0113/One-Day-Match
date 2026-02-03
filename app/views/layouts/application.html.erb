@@ -21,12 +21,6 @@
           <%= link_to root_path, class: "text-decoration-none fw-bold fs-5" do %>
             OneDayMatch
           <% end %>
-          <% unless controller_name == "posts" && action_name == "new" %>
-  <div class="small text-muted">
-    今日だけ、誰かと話してもいい場所
-  </div>
-<% end %>
-
         </div>
 
         <nav class="d-flex gap-3 align-items-center">
@@ -53,9 +47,6 @@
           class: "btn btn-outline-light btn-sm" %>
 
   <% else %>
-    <span class="small text-muted">
-      今日は、誰かと話したい気分ですか？
-    </span>
 
     <%= link_to "新規登録",
           new_user_registration_path,

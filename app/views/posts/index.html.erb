@@ -2,11 +2,11 @@
   <div class="container py-5">
 
     <h1 class="text-center mb-2">
-      今日誰かと繋がりたい人たち
+      今の気持ち、そっと置いておきますね
     </h1>
 
     <p class="text-center text-muted mb-5">
-      今日は、誰かと話してもいい日ですか？
+      少しだけ息抜きしませんか？
     </p>
 
     <% if @posts.any? %>
@@ -18,7 +18,15 @@
               <p class="small text-muted mb-1">
                 <%= post.created_at.strftime("%-m/%-d") %> の記録
               </p>
+            
+              <% if post.expires_on == Date.today %>
+              <span class="badge bg-primary mb-2">
+                今日
+              </span>
+            <% end %>
+            
 
+            
               <p class="fw-bold mb-2">
               <%= post.user&.name || "匿名ユーザー" %>
 </p>
@@ -52,7 +60,7 @@
       </div>
     <% else %>
       <p class="text-center text-muted mt-5">
-        今日はまだ、誰も話す準備ができていません。
+        今日はまだ、誰も投稿してません。
       </p>
     <% end %>
 

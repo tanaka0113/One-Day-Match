@@ -53,3 +53,27 @@ header nav form button {
   padding: 0 0.5rem;     /* 横余白を link_to と揃える */
   line-height: 1.2;
 }
+
+.post-show-bg {
+  background-image: asset-url("bg-soft.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.post-show-bg .col-md-7,
+.post-show-bg .col-md-5 {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.post-new-bg {
+  background-image: asset-url("new.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
