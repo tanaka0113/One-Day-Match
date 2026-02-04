@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @posts = Post.published.order(created_at: :desc)
@@ -45,6 +45,12 @@ class PostsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, notice: "削除しました"
   end
 
   private
