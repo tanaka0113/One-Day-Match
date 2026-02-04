@@ -1,0 +1,39 @@
+<div class="container py-5">
+  <h1 class="text-center mb-4">
+    下書き一覧
+  </h1>
+
+  <% if @posts.any? %>
+    <div class="row">
+      <% @posts.each do |post| %>
+        <div class="col-md-4 mb-4">
+          <div class="bg-white p-3 rounded shadow-sm h-100">
+
+            <p class="small text-muted mb-1">
+              <%= post.created_at.strftime("%-m/%-d") %> の下書き
+            </p>
+
+            <p class="mb-3">
+              <%= truncate(post.content, length: 60) %>
+            </p>
+
+            <%= link_to "編集する",
+                  edit_post_path(post),
+                  class: "btn btn-outline-secondary btn-sm w-100" %>
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="text-center text-muted">
+      まだ下書きはありません。
+    </p>
+  <% end %>
+
+  <div class="text-center mt-4">
+    <%= link_to "← 投稿一覧に戻る",
+          posts_path,
+          class: "btn btn-outline-secondary btn-sm" %>
+  </div>
+</div>

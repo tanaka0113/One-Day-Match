@@ -52,6 +52,13 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path, notice: "削除しました"
   end
+  
+  def drafts
+    @posts = current_user.posts.draft.order(created_at: :desc)
+  end
+  
+  private
+  
 
   private
 
