@@ -18,8 +18,21 @@
             </p>
 
             <%= link_to "編集する",
-                  edit_post_path(post),
-                  class: "btn btn-outline-secondary btn-sm w-100" %>
+            edit_post_path(post),
+            class: "btn btn-outline-secondary btn-sm w-100" %>
+      
+      <%= button_to "公開する",
+            post_path(post),
+            method: :patch,
+            params: { post: { status: "published" } },
+            class: "btn btn-success btn-sm w-100 mt-2" %>
+      
+      <%= button_to "削除",
+            post_path(post),
+            method: :delete,
+            data: { turbo_confirm: "この下書きを削除しますか？" },
+            class: "btn btn-outline-danger btn-sm w-100 mt-2" %>
+      
 
           </div>
         </div>

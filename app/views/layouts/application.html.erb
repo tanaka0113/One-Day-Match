@@ -32,6 +32,11 @@
       </span>
     <% end %>
 
+    <%= link_to "下書き",
+      drafts_posts_path,
+      class: "btn btn-outline-light btn-sm" %>
+
+
     <%= link_to "今日の投稿",
           new_post_path,
           class: "btn btn-primary btn-sm" %>
