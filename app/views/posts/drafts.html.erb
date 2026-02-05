@@ -1,52 +1,53 @@
-<div class="container py-5">
-  <h1 class="text-center mb-4">
-    下書き一覧
-  </h1>
+<div class="cover-drafts">
+  <div class="container py-5">
+    <h1 class="text-center mb-4">
+      下書き一覧
+    </h1>
 
-  <% if @posts.any? %>
-    <div class="row">
-      <% @posts.each do |post| %>
-        <div class="col-md-4 mb-4">
-          <div class="bg-white p-3 rounded shadow-sm h-100">
+    <% if @posts.any? %>
+      <div class="row">
+        <% @posts.each do |post| %>
+          <div class="col-md-4 mb-4">
+            <div class="bg-white p-3 rounded shadow-sm h-100">
 
-            <p class="small text-muted mb-1">
-              <%= post.created_at.strftime("%-m/%-d") %> の下書き
-            </p>
+              <p class="small text-muted mb-1">
+                <%= post.created_at.strftime("%-m/%-d") %> の下書き
+              </p>
 
-            <p class="mb-3">
-              <%= truncate(post.content, length: 60) %>
-            </p>
+              <p class="mb-3">
+                <%= truncate(post.content, length: 60) %>
+              </p>
 
-            <%= link_to "編集する",
-            edit_post_path(post),
-            class: "btn btn-outline-secondary btn-sm w-100" %>
-      
-      <%= button_to "公開する",
-            post_path(post),
-            method: :patch,
-            params: { post: { status: "published" } },
-            class: "btn btn-success btn-sm w-100 mt-2" %>
-      
-      <%= button_to "削除",
-            post_path(post),
-            method: :delete,
-            data: { turbo_confirm: "この下書きを削除しますか？" },
-            class: "btn btn-outline-danger btn-sm w-100 mt-2" %>
-      
+              <%= link_to "編集する",
+                  edit_post_path(post),
+                  class: "btn btn-outline-secondary btn-sm w-100" %>
 
+              <%= button_to "公開する",
+                  post_path(post),
+                  method: :patch,
+                  params: { post: { status: "published" } },
+                  class: "btn btn-success btn-sm w-100 mt-2" %>
+
+              <%= button_to "削除",
+                  post_path(post),
+                  method: :delete,
+                  data: { turbo_confirm: "この下書きを削除しますか？" },
+                  class: "btn btn-outline-danger btn-sm w-100 mt-2" %>
+
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <p class="text-center text-muted">
-      まだ下書きはありません。
-    </p>
-  <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="text-center text-muted">
+        まだ下書きはありません。
+      </p>
+    <% end %>
 
-  <div class="text-center mt-4">
-    <%= link_to "← 投稿一覧に戻る",
+    <div class="text-center mt-4">
+      <%= link_to "← 投稿一覧に戻る",
           posts_path,
           class: "btn btn-outline-secondary btn-sm" %>
+    </div>
   </div>
 </div>

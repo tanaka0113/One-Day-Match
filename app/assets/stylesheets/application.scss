@@ -77,3 +77,15 @@ header nav form button {
   background-repeat: no-repeat;
   min-height: 100vh;
 }
+
+.cover-drafts {
+  min-height: 100vh;
+
+  background-image: linear-gradient(
+    rgba(255,255,255,0.8),
+    rgba(255,255,255,0.8)
+  ), asset-url("drafts-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
