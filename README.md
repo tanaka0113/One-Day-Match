@@ -119,7 +119,6 @@ OneDayMatch は、そうした一時的な気分を無理に形にせず、
 - Ruby 3.2.9
 - Ruby on Rails 7
 - PostgreSQL
-- Docker
 - Render
 - Bootstrap
 
@@ -128,8 +127,8 @@ OneDayMatch は、そうした一時的な気分を無理に形にせず、
 ## 利用方法
 
 1. ユーザー登録を行い、ログインします  
-（※テスト<img width="1280" height="832" alt="スクリーンショット 2026-02-08 12 30 18" src="https://github.com/user-attachments/assets/798e5298-b7d2-4429-90da-542aef62d76e" />
-ユーザーも用意しています）
+（※テストユーザーも用意しています）
+<img width="1280" height="832" alt="スクリーンショット 2026-02-08 12 30 18" src="https://github.com/user-attachments/assets/798e5298-b7d2-4429-90da-542aef62d76e" />
 
 2. 「今日の投稿」から、今の気持ちをひとこと投稿します
 <img width="1280" height="832" alt="スクリーンショット 2026-02-08 12 31 58" src="https://github.com/user-attachments/assets/8f60e4c4-2bc5-4776-9951-9321d1eacb22" />
