@@ -102,14 +102,6 @@ OneDayMatch は、そうした一時的な気分を無理に形にせず、
 
 ---
 
-## アプリURL
-https://one-day-match.onrender.com
-
-## テストユーザー（閲覧用）
-- メールアドレス：test@user
-- パスワード：testuser
-
-
 ## 主な利用シーン
 
 - 今日だけ誰かの投稿を眺めたいとき  
@@ -130,6 +122,29 @@ https://one-day-match.onrender.com
 - Docker
 - Render
 - Bootstrap
+
+---
+
+## 利用方法
+
+1. ユーザー登録を行い、ログインします  
+（※テスト<img width="1280" height="832" alt="スクリーンショット 2026-02-08 12 30 18" src="https://github.com/user-attachments/assets/798e5298-b7d2-4429-90da-542aef62d76e" />
+ユーザーも用意しています）
+
+2. 「今日の投稿」から、今の気持ちをひとこと投稿します
+<img width="1280" height="832" alt="スクリーンショット 2026-02-08 12 31 58" src="https://github.com/user-attachments/assets/8f60e4c4-2bc5-4776-9951-9321d1eacb22" />
+
+3. 同じ日に投稿しているユーザーの投稿だけが一覧に表示されます
+<img width="1280" height="832" alt="スクリーンショット 2026-02-08 12 37 47" src="https://github.com/user-attachments/assets/9731f8e0-819e-4e91-8696-4a568b29342e" />
+
+4. 気になる投稿に対して、コメントやリアクションを行えます
+
+<img width="1280" height="832" alt="スクリーンショット 2026-02-08 12 38 52" src="https://github.com/user-attachments/assets/90b92656-8492-4d89-a4d6-647fff062ced" />
+
+
+※ 投稿は当日限りで、翌日になると一覧から非表示になります
+
+---
 
 ## 補足
 本サービスは、継続的な関係構築を目的とせず、
